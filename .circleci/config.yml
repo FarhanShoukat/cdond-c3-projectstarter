@@ -261,7 +261,7 @@ jobs:
 
   deploy-backend:
     docker:
-      - image: python:3.7-alpine3.11
+      - image: ubuntu:20.04
     steps:
       - checkout
       - add_ssh_keys:
@@ -271,8 +271,11 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --update ansible 
-            pip install awscli
+            export DEBIAN_FRONTEND=noninteractive
+            apt-get update
+            apt-get install -y awscli ansible curl tar gzip
+            curl -sL https://deb.nodesource.com/setup_13.x | bash -
+            apt-get -y install nodejs
       - run:
           name: Deploy backend
           command: |
