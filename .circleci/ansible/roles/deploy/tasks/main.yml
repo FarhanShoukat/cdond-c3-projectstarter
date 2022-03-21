@@ -10,11 +10,11 @@
   npm:
     path: /home/ubuntu/backend
     
-- name: "Stop default pm2"
-  become: yes
-  shell: pm2 stop default
-  args:
-    chdir: /home/ubuntu/backend
+# - name: "Stop default pm2"
+#   become: yes
+#   shell: pm2 stop default
+#   args:
+#     chdir: /home/ubuntu/backend
 
 - name: "start pm2"
   become: yes
