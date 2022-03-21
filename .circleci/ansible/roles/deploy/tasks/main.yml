@@ -8,7 +8,7 @@
 - name: "installing dependencies"
   become: yes
   npm:
-    path: /home/ubuntu/backend
+    path: /home/ubuntu
     
 # - name: "Stop default pm2"
 #   become: yes
@@ -18,6 +18,6 @@
 
 - name: "start pm2"
   become: yes
-  shell: pm2 start --name "backend" npm -- start
+  shell: pm2 start npm -- start
   args:
-    chdir: /home/ubuntu/backend
+    chdir: /home/ubuntu
